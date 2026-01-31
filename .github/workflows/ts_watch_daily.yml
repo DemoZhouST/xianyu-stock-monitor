@@ -32,7 +32,7 @@ jobs:
           WATCHLIST_PATH: watchlist_cn.json
           TS_SLEEP_MIN: "32"
           TS_SLEEP_MAX: "38"
-          PUSH_DAILY_SUMMARY: "0"
+          PUSH_DAILY_SUMMARY: "1"
           PUSH_IF_NO_PREV: "0"
         run: |
           python ts_watch.py
