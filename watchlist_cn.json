@@ -13,7 +13,7 @@
       "c": 601,
       "profit": [20, 35, 50],
       "loss": [-10, -20, -30],
-      "enabled": true
+      "enabled": false
     },
     
     {
@@ -21,21 +21,21 @@
       "c": 22.80,
       "profit": [20, 35, 50],
       "loss": [-12, -18, -30],
-      "enabled": true
+      "enabled": false
     },
     {
       "s": "01898.HK",
       "c": 10.91,
       "profit": [20, 35, 50],
       "loss": [-10, -18, -30],
-      "enabled": true
+      "enabled": false
     },
     {
       "s": "01088.HK",
       "c": 41.2,
       "profit": [20, 35, 50],
       "loss": [-10, -18, -30],
-      "enabled": true
+      "enabled": false
     }
   ]
 }
