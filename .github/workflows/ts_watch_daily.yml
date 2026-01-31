@@ -1,0 +1,38 @@
+name: ts_watch_daily
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "15 8 * * *"  # UTC 08:15 = 北京时间 16:15（每天）
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install tushare pandas requests
+
+      - name: Run ts_watch.py
+        env:
+          TZ: Asia/Shanghai
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+          WATCHLIST_PATH: watchlist_cn.json
+          TS_SLEEP_MIN: "32"
+          TS_SLEEP_MAX: "38"
+          PUSH_DAILY_SUMMARY: "0"
+          PUSH_IF_NO_PREV: "0"
+        run: |
+          python ts_watch.py
